@@ -14,13 +14,13 @@ get_header(); ?>
 					<h1 class="page-title">
 						<?php
 							if ( is_day() ) :
-								printf( __( 'Daily Archives: %s', 'seismicnyc' ), '<span>' . get_the_date() . '</span>' );
+								printf( __( 'Daily Archives: %s', 'seismic-manhattan' ), '<span>' . get_the_date() . '</span>' );
 							elseif ( is_month() ) :
-								printf( __( 'Monthly Archives: %s', 'seismicnyc' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
+								printf( __( 'Monthly Archives: %s', 'seismic-manhattan' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
 							elseif ( is_year() ) :
-								printf( __( 'Yearly Archives: %s', 'seismicnyc' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
+								printf( __( 'Yearly Archives: %s', 'seismic-manhattan' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
 							else :
-								_e( 'Archives', 'seismicnyc' );
+								_e( 'Archives', 'seismic-manhattan' );
 							endif;
 						?>
 					</h1>
@@ -45,11 +45,11 @@ get_header(); ?>
 
 				<article id="post-0" class="post no-results not-found">
 					<header class="entry-header">
-						<h1 class="entry-title"><?php _e( 'Nothing Found', 'seismicnyc' ); ?></h1>
+						<h1 class="entry-title"><?php _e( 'Nothing Found', 'seismic-manhattan' ); ?></h1>
 					</header><!-- .entry-header -->
 
 					<div class="entry-content">
-						<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'seismicnyc' ); ?></p>
+						<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'seismic-manhattan' ); ?></p>
 						<?php get_search_form(); ?>
 					</div><!-- .entry-content -->
 				</article><!-- #post-0 -->

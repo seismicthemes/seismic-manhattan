@@ -13,12 +13,17 @@ function seismicnyc_setup() {
 	if ( ! isset( $content_width ) )
 		$content_width = 650;
 	
-	load_theme_textdomain( 'seismicnyc', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'seismic-manhattan', get_template_directory() . '/languages' );
 
 	$locale = get_locale();
 	$locale_file = get_template_directory() . "/languages/$locale.php";
 	if ( is_readable( $locale_file ) )
 		require_once( $locale_file );
+		
+	/**
+	 * Let WP handle the title tag
+	 */
+	add_theme_support( 'title-tag' );
 
 	/**
 	 * Add default posts and comments RSS feed links to head
@@ -29,7 +34,7 @@ function seismicnyc_setup() {
 	 * This theme uses wp_nav_menu() in one location.
 	 */
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'seismicnyc' ),
+		'primary' => __( 'Primary Menu', 'seismic-manhattan' ),
 	) );
 
 	/**
@@ -77,12 +82,12 @@ function seismicnyc_custom_header_function() {
 		'brooklyn-bridge' => array(
 			'url'           => '%s/imgs/header/brooklyn-bridge.jpg',
 			'thumbnail_url' => '%s/imgs/header/brooklyn-bridge-thumbnail.jpg',
-			'description'   => _x( 'Brooklyn Bridge', 'header image description', 'seismicnyc' )
+			'description'   => _x( 'Brooklyn Bridge', 'header image description', 'seismic-manhattan' )
 		),
 		'times-square' => array(
 			'url'           => '%s/imgs/header/times-square.jpg',
 			'thumbnail_url' => '%s/imgs/header/times-square-thumbnail.jpg',
-			'description'   => _x( 'Times Square', 'header image description', 'seismicnyc' )
+			'description'   => _x( 'Times Square', 'header image description', 'seismic-manhattan' )
 		),
 	) );
 }
@@ -107,7 +112,7 @@ function seismicnyc_wp_title( $title, $sep ) {
 
 	// Add a page number if necessary.
 	if ( $paged >= 2 || $page >= 2 )
-		$title = "$title $sep " . sprintf( __( 'Page %s', 'seismicnyc' ), max( $paged, $page ) );
+		$title = "$title $sep " . sprintf( __( 'Page %s', 'seismic-manhattan' ), max( $paged, $page ) );
 
 	return $title;
 }
@@ -184,7 +189,7 @@ add_filter( 'wp_page_menu_args', 'seismicnyc_page_menu_args' );
  */
 function seismicnyc_widgets_init() {
 	register_sidebar( array(
-		'name' => __( 'Sidebar', 'seismicnyc' ),
+		'name' => __( 'Sidebar', 'seismic-manhattan' ),
 		'id' => 'sidebar',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => "</aside>",
@@ -203,21 +208,21 @@ function seismicnyc_content_nav( $nav_id ) {
 
 	?>
 	<nav id="<?php echo $nav_id; ?>">
-		<h1 class="assistive-text section-heading"><?php _e( 'Post navigation', 'seismicnyc' ); ?></h1>
+		<h1 class="assistive-text section-heading"><?php _e( 'Post navigation', 'seismic-manhattan' ); ?></h1>
 
 	<?php if ( is_single() ) : // navigation links for single posts ?>
 
-		<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'seismicnyc' ) . '</span> %title' ); ?>
-		<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'seismicnyc' ) . '</span>' ); ?>
+		<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'seismic-manhattan' ) . '</span> %title' ); ?>
+		<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'seismic-manhattan' ) . '</span>' ); ?>
 
 	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
 
 		<?php if ( get_next_posts_link() ) : ?>
-		<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'seismicnyc' ) ); ?></div>
+		<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'seismic-manhattan' ) ); ?></div>
 		<?php endif; ?>
 
 		<?php if ( get_previous_posts_link() ) : ?>
-		<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'seismicnyc' ) ); ?></div>
+		<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'seismic-manhattan' ) ); ?></div>
 		<?php endif; ?>
 
 	<?php endif; ?>
@@ -239,7 +244,7 @@ function seismicnyc_comment( $comment, $args, $depth ) {
 		case 'trackback' :
 	?>
 	<li class="post pingback">
-		<p><?php _e( 'Pingback:', 'seismicnyc' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( '(Edit)', 'seismicnyc' ), ' ' ); ?></p>
+		<p><?php _e( 'Pingback:', 'seismic-manhattan' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( '(Edit)', 'seismic-manhattan' ), ' ' ); ?></p>
 	<?php
 			break;
 		default :
@@ -249,10 +254,10 @@ function seismicnyc_comment( $comment, $args, $depth ) {
 			<footer>
 				<div class="comment-author vcard">
 					<?php echo get_avatar( $comment, 40 ); ?>
-					<?php printf( __( '%s <span class="says">says:</span>', 'seismicnyc' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
+					<?php printf( __( '%s <span class="says">says:</span>', 'seismic-manhattan' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
 				</div><!-- .comment-author .vcard -->
 				<?php if ( $comment->comment_approved == '0' ) : ?>
-					<em><?php _e( 'Your comment is awaiting moderation.', 'seismicnyc' ); ?></em>
+					<em><?php _e( 'Your comment is awaiting moderation.', 'seismic-manhattan' ); ?></em>
 					<br />
 				<?php endif; ?>
 
@@ -260,9 +265,9 @@ function seismicnyc_comment( $comment, $args, $depth ) {
 					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time pubdate datetime="<?php comment_time( 'c' ); ?>">
 					<?php
 						/* translators: 1: date, 2: time */
-						printf( __( '%1$s at %2$s', 'seismicnyc' ), get_comment_date(), get_comment_time() ); ?>
+						printf( __( '%1$s at %2$s', 'seismic-manhattan' ), get_comment_date(), get_comment_time() ); ?>
 					</time></a>
-					<?php edit_comment_link( __( '(Edit)', 'seismicnyc' ), ' ' );
+					<?php edit_comment_link( __( '(Edit)', 'seismic-manhattan' ), ' ' );
 					?>
 				</div><!-- .comment-meta .commentmetadata -->
 			</footer>
@@ -285,13 +290,13 @@ if ( ! function_exists( 'seismicnyc_posted_on' ) ) :
  * Prints HTML with meta information for the current post-date/time and author.
  */
 function seismicnyc_posted_on() {
-	printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="byline"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'seismicnyc' ),
+	printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="byline"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'seismic-manhattan' ),
 		esc_url( get_permalink() ),
 		esc_attr( get_the_time() ),
 		esc_attr( get_the_date( 'c' ) ),
 		esc_html( get_the_date() ),
 		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-		esc_attr( sprintf( __( 'View all posts by %s', 'seismicnyc' ), get_the_author() ) ),
+		esc_attr( sprintf( __( 'View all posts by %s', 'seismic-manhattan' ), get_the_author() ) ),
 		esc_html( get_the_author() )
 	);
 }

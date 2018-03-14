@@ -18,7 +18,6 @@
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width" />
-<title><?php wp_title( '|', true, 'right' ); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
@@ -36,8 +35,8 @@
 		</hgroup>
 	</header><!-- #branding -->
 	<nav id="access" role="navigation">
-		<h1 class="assistive-text section-heading"><?php _e( 'Main menu', 'seismicnyc' ); ?></h1>
-		<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'seismicnyc' ); ?>"><?php _e( 'Skip to content', 'seismicnyc' ); ?></a></div>
+		<h1 class="assistive-text section-heading"><?php _e( 'Main menu', 'seismic-manhattan' ); ?></h1>
+		<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'seismic-manhattan' ); ?>"><?php _e( 'Skip to content', 'seismic-manhattan' ); ?></a></div>
 
 		<?php wp_nav_menu( array( 'theme_location' => 'primary', 'fallback_cb' => false, 'depth' => 4 ) ); ?>
 	</nav><!-- #access -->

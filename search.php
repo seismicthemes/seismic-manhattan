@@ -11,7 +11,7 @@ get_header(); ?>
 			<?php if ( have_posts() ) : ?>
 
 				<header class="page-header">
-					<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'seismicnyc' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+					<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'seismic-manhattan' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 				</header>
 
 				<?php seismicnyc_content_nav( 'nav-above' ); ?>
@@ -29,11 +29,11 @@ get_header(); ?>
 
 				<article id="post-0" class="post no-results not-found">
 					<header class="entry-header">
-						<h1 class="entry-title"><?php _e( 'Nothing Found', 'seismicnyc' ); ?></h1>
+						<h1 class="entry-title"><?php _e( 'Nothing Found', 'seismic-manhattan' ); ?></h1>
 					</header><!-- .entry-header -->
 
 					<div class="entry-content">
-						<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'seismicnyc' ); ?></p>
+						<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'seismic-manhattan' ); ?></p>
 						<?php get_search_form(); ?>
 					</div><!-- .entry-content -->
 				</article><!-- #post-0 -->

@@ -11,7 +11,7 @@
 
 	<div class="entry-content">
 		<?php the_content(); ?>
-		<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'seismicnyc' ), 'after' => '</div>' ) ); ?>
-		<?php edit_post_link( __( 'Edit', 'seismicnyc' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'seismic-manhattan' ), 'after' => '</div>' ) ); ?>
+		<?php edit_post_link( __( 'Edit', 'seismic-manhattan' ), '<span class="edit-link">', '</span>' ); ?>
 	</div><!-- .entry-content -->
 </article><!-- #post-<?php the_ID(); ?> -->
