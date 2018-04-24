@@ -442,6 +442,8 @@ a:hover {
 	font-weight: bold;
 	line-height: 1.3em;
 	margin-bottom: 0;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
 }
 .entry-title a:link,
 .entry-title a:visited {
@@ -453,6 +455,7 @@ a:hover {
 	color: #c0392b;
 }
 .entry-meta {
+	clear: both;
 	color: #888;
 	font-size: 10px;
 }

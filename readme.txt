@@ -9,6 +9,10 @@ Seismic Manhattan is Based on the Underscores Framework and Toolbox, (C) 2012-20
 
 == Changelog ==
 
+= 0.8 - Apr 23 2018 =
+* update to the latest theme standards
+* minor css updates
+
 = 0.7 - Apr 18 2014 =
 * Function prefix updates
 * "Base" theme credits
